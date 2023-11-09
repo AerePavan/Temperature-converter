@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .converter {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-weight: bold;
+            color: #333;
+        }
+       
+    </style>
+</head>
+<body style="background-color:aqua">
+
+    <div class="converter">
+        <h2>Temperature Converter</h2>
+        <label for="celsius">Celsius:</label>
+        <input type="number" id="celsius">
+
+        <label for="fahrenheit">Fahrenheit:</label>
+        <input type="number" id="fahrenheit">
+
+        <label for="kelvin">kelvin</label>
+        <input type="number" id="kelvin">
+
+        <button onclick="convert()">Convert</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function convert() {
+            var celsius = document.getElementById('celsius').value;
+            var fahrenheit = (celsius * 9/5) + 32;
+            var kelvin = parseFloat(celsius) + 273.15;
+
+            document.getElementById('fahrenheit').value = fahrenheit.toFixed(2);
+            document.getElementById('kelvin').value = kelvin.toFixed(2);
+
+            var result = celsius + "°C is " + fahrenheit.toFixed(2) + "°F and " + kelvin.toFixed(2) + "K";
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>
